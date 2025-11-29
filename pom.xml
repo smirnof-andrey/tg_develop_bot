@@ -10,29 +10,44 @@
     </parent>
     <groupId>ru.test</groupId>
     <artifactId>tg_develop_bot</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>0.0.1</version>
     <name>tg_develop_bot</name>
     <description>tg_develop_bot</description>
-    <url/>
-    <licenses>
-        <license/>
-    </licenses>
-    <developers>
-        <developer/>
-    </developers>
-    <scm>
-        <connection/>
-        <developerConnection/>
-        <tag/>
-        <url/>
-    </scm>
+    <packaging>jar</packaging>
+<!--    <url/>-->
+<!--    <licenses>-->
+<!--        <license/>-->
+<!--    </licenses>-->
+<!--    <developers>-->
+<!--        <developer/>-->
+<!--    </developers>-->
+<!--    <scm>-->
+<!--        <connection/>-->
+<!--        <developerConnection/>-->
+<!--        <tag/>-->
+<!--        <url/>-->
+<!--    </scm>-->
     <properties>
+        <maven.compiler.source>21</maven.compiler.source>
+        <maven.compiler.target>21</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <java.version>21</java.version>
     </properties>
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.telegram</groupId>
+            <artifactId>telegrambots</artifactId>
+            <version>6.9.7.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.telegram</groupId>
+            <artifactId>telegrambots-abilities</artifactId>
+            <version>9.2.0</version>
         </dependency>
 
         <dependency>
@@ -65,6 +80,7 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
+                    <mainClass>ru.test.tg_develop_bot.TgDevelopBotApplication</mainClass>
                     <excludes>
                         <exclude>
                             <groupId>org.projectlombok</groupId>
