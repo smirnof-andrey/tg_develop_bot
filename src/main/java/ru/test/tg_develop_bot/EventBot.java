@@ -1,6 +1,7 @@
 package ru.test.tg_develop_bot;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
@@ -18,6 +19,22 @@ import java.time.LocalDateTime;
 public class EventBot extends TelegramLongPollingBot {
     @Autowired
     private RegistrationService registrationService;
+
+    @Value("${BOT_TOKEN}")
+    private String botToken;
+
+    @Value("${BOT_USERNAME}")
+    private String botUsername;
+
+    @Override
+    public String getBotUsername() {
+        return botUsername;
+    }
+
+    @Override
+    public String getBotToken() {
+        return botToken;
+    }
 
     @Override
     public void onUpdateReceived(Update update) {
@@ -206,15 +223,5 @@ public class EventBot extends TelegramLongPollingBot {
         } catch (TelegramApiException e) {
             e.printStackTrace();
         }
-    }
-
-    @Override
-    public String getBotUsername() {
-        return "YourBotName";
-    }
-
-    @Override
-    public String getBotToken() {
-        return "YOUR_BOT_TOKEN";
     }
 }
